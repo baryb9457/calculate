@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bjs</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: grey;
+            display: grid;
+            place-self: center;
+            justify-content: center;
+            height:890px;
+            width: 100vw;
+            overflow: hidden;
+            position:static;
+            
+        }
+
+        button{
+            text-align: center;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            font-size: larger;
+        }
+        input{
+            width: 212px;
+            height: 50px;
+            background-color: lightgoldenrodyellow;
+            text-align: right;
+            font-size: larger;
+        }
+
+        .container{
+            display: flexbox;
+            justify-items: center;
+            align-items: center;
+            width: 217px;
+            height: 252px;
+            background-color: aliceblue;
+            border: 2px solid;
+            margin-left: 40%;
+            margin-top: 15%;
+            box-shadow: 0px 0px 10px  2px auto ;
+
+        }
+        .g{
+            box-sizing: border-box;
+            display: flexbox;
+            width: 212px;
+            height: 200px;
+            background-color: lightblue;
+            margin-top: -2px;
+        }
+        head{
+            background-color: teal;
+            width: 100vw;
+            height: 100px;
+
+        }
+
+        head, ul{
+            width: 100vw;
+            height: 200px;
+            background-color: teal;
+            text-align: center;
+            place-content: center;
+        }
+        footer{
+          place-items: center;
+          align-content: center;
+            width: 100vw;
+            height: 100px;;
+            background-color: aliceblue;
+            margin-top:  25%;
+          
+        }
+      
+       
+
+
+    </style>
+<ul><p>My first Calculate</p></ul>
+</head>
+<body >
+
+    
+    <div class="container">
+        <input type="text" class="scm" id="ecran"><br>
+        <div class="g">
+        <button onclick="efface()" >C</button>
+        <button onclick="opN('1')" >1</button>
+        <button onclick="opN('2')" >3</button>
+        <button onclick="calcule()" >=</button>
+
+        <button onclick="opN('5')" >5</button>
+        <button onclick="opN('6')" >6</button>
+        <button onclick="opN('7')" >7</button>
+        
+        <button onclick="opN('4')" >4</button>
+        <button onclick="opN('0')" >0</button>
+        <button onclick="opN('9')" >9</button>
+        <button onclick="opN('8')" >8</button>
+        <button onclick="opN('2')" >2</button>
+        
+        <button onclick="ops('+')" >+</button>
+        <button onclick="ops('-')" >-</button>
+        <button onclick="ops('/')" >/</button>
+        <button onclick="ops('*')" >*</button>
+        </div>
+    </div>
+
+
+    <script>
+        const Ecran = document.getElementById('ecran'); // sélection écran
+        // function de recupèration de saisis des bouttons des numbres
+        let Number1 = '', op = '', Number2 = '',  resultat = '';
+      
+
+       function opN(buttonNumber) { 
+        
+       if(op === '' ) {
+        Number1 += Number(buttonNumber)
+
+       } else {
+        Number2 += Number(buttonNumber)
+
+
+       }
+       Ecran.value = buttonNumber;
+        
+       }
+
+
+       function ops(operateurs) { // récupérations de operateurs
+        op = operateurs;
+        Ecran.value = op;
+       }
+
+     
+
+      function efface () { // founction d'effassage d'ecran
+        Ecran.value = '';
+        Number1 = '';
+        op = '';
+        Number2 = ''
+
+        return;
+       }
+
+function calcule() {
+         switch(op) {
+            case '+': resultat = Number(Number1) + Number(Number2); break;
+            case '-': resultat =  Number(Number1) - Number(Number2); break;
+            case '*': resultat = Number(Number1) * Number(Number2);break;
+            case '/':  if(Number(Number1) === 0) {
+                Ecran.value = 'Error invalid'.toLocaleUpperCase();
+                return;
+           } else{
+                resultat = Number(Number1) / Number(Number2); break;
+             }
+             return;
+
+        }
+      misAjourEcran()
+    }
+
+    function misAjourEcran() {
+        Number1 = '';
+        Number2 = '';
+        Ecran.value =  resultat
+      
+    }
+  
+   
+
+  
+
+    
+
+
+    </script>
+</body>
+<footer  ><p>Coryrigth@KAM_sdwm</p></footer>
+</html>
