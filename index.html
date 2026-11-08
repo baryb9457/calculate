@@ -15,7 +15,7 @@
             display: grid;
             place-self: center;
             justify-content: center;
-            height:890px;
+            height:fit-content;
             width: 100vw;
             overflow: hidden;
             position:static;
@@ -56,18 +56,17 @@
             width: 212px;
             height: 200px;
             background-color: lightblue;
-            margin-top: -2px;
         }
         head{
             background-color: teal;
-            width: 100vw;
-            height: 100px;
+            width: auto;
+            height: auto;
 
         }
 
         head, ul{
             width: 100vw;
-            height: 200px;
+            height: 100px;
             background-color: teal;
             text-align: center;
             place-content: center;
@@ -78,20 +77,28 @@
             width: 100vw;
             height: 100px;;
             background-color: aliceblue;
-            margin-top:  25%;
+            
           
         }
-      
-       
+        .center{
+            display: grid;
+            justify-content: center;
+            place-items: center;
+
+            width: 100vw;
+            height: 710px;
+           
+        }
 
 
     </style>
-<ul><p>My first Calculate</p> <br> <li style=" color:red; text-decoration: none; font-size: large; font-style: italic;" >wil son update....</li></ul>
+<ul><p>My first Calculate</p><br></ul>
 </head>
 <body >
 
     
-    <div class="container">
+   <div class="center">
+     <div class="container">
         <input type="text" class="scm" id="ecran"><br>
         <div class="g">
         <button onclick="efface()" >C</button>
@@ -115,6 +122,7 @@
         <button onclick="ops('*')" >*</button>
         </div>
     </div>
+   </div>
 
 
     <script>
@@ -124,13 +132,12 @@
       
 
        function opN(buttonNumber) { 
-        
-       if(op === '' ) {
+         
+        if(op === '' ) {
         Number1 += Number(buttonNumber)
 
        } else {
         Number2 += Number(buttonNumber)
-
 
        }
        Ecran.value = buttonNumber;
